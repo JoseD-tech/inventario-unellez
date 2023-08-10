@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Inventario;
 use Illuminate\Foundation\Application;
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -26,12 +29,16 @@ Route::get('/', function () {
     ]);
 });
 
+Route::post('/formulario', [Controller::class, 'formulario'])->name('formulario');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/about', fn () => Inertia::render('About'))->name('about');
+    Route::get('/about', fn () => Inertia::render('About', [
+        'inventario' => Inventario::all()
+    ]))->name('about');
 
     Route::get('users', [UserController::class, 'index'])->name('users.index');
 
