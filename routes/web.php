@@ -8,6 +8,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\InventarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,9 +37,13 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+
     Route::get('/about', fn () => Inertia::render('About', [
         'inventario' => Inventario::all()
     ]))->name('about');
+
+    Route::get('/export/inventario/{id}', [InventarioController::class, 'crearPDF'])->name('inventario.pdf');
+
 
     Route::get('users', [UserController::class, 'index'])->name('users.index');
 

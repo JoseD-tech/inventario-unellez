@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Inventario;
 use Illuminate\Http\Request;
+use PDF;
 
 class InventarioController extends Controller
 {
@@ -65,11 +66,10 @@ class InventarioController extends Controller
         //
     }
 
-    public function crearPDF()
+    public function crearPDF($id)
     {
-        $inventario = Inventario::all();
-        view()->share('productos', $inventario);
-        #$pdf = PDF::loadView('index', $inventario);
-        #return $pdf->download('archivo-pdf.pdf');
+        $inventario = Inventario::find($id);
+        $pdf = PDF::loadView('exportPDF', compact('inventario'));
+        return $pdf->stream('archivo-pdf.pdf');
     }
 }

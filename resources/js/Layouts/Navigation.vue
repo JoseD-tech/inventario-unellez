@@ -51,6 +51,7 @@
 </template>
 
 <script>
+import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import NavLink from '@/Components/NavLink.vue'
 import { Link } from '@inertiajs/vue3';
 import { ref } from 'vue'
@@ -59,7 +60,8 @@ export default {
   components: {
     NavLink,
     Link,
-  },
+    ApplicationLogo
+},
 
   setup() {
     let showingTwoLevelMenu = ref(false)

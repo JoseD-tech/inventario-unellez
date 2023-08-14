@@ -4,11 +4,11 @@
 
     <div class="flex flex-col overflow-y-auto md:flex-row">
       <div class="h-32 md:h-auto md:w-1/2">
-        <img aria-hidden="true" class="object-cover w-full h-full" src="/images/login-office.jpeg" alt="Office"/>
+        <img aria-hidden="true" class="object-cover w-full h-full" src="/images/unellez.jpg" alt="Office"/>
       </div>
       <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
         <div class="w-full">
-          <h1 class="mb-4 text-xl font-semibold text-gray-700">Login</h1>
+          <h1 class="mb-4 text-xl font-semibold text-gray-700">Iniciar Sesion</h1>
 
           <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
             {{ status }}
@@ -16,13 +16,13 @@
 
           <form @submit.prevent="submit">
             <div class="mt-4">
-              <InputLabel for="email" value="Email"/>
+              <InputLabel for="email" value="Correo"/>
               <TextInput id="email" type="email" class="block w-full mt-1" v-model="form.email" required autofocus autocomplete="username" />
               <InputError class="mt-2" :message="form.errors.email" />
             </div>
 
             <div class="mt-4">
-              <InputLabel for="password" value="Password"/>
+              <InputLabel for="password" value="Clave"/>
               <TextInput id="password" type="password" class="block w-full mt-1" v-model="form.password" required autocomplete="current-password"/>
               <InputError class="mt-2" :message="form.errors.password" />
             </div>
@@ -30,13 +30,13 @@
             <div class="block mt-4">
               <label class="flex items-center">
                 <Checkbox name="remember" v-model:checked="form.remember"/>
-                <span class="ml-2 text-sm text-gray-600">Remember me</span>
+                <span class="ml-2 text-sm text-gray-600">Recordarme</span>
               </label>
             </div>
 
             <div class="flex items-center justify-end mt-4">
-              <PrimaryButton class="w-full bg-orange-500" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Log in
+              <PrimaryButton class="w-full" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                Iniciar
               </PrimaryButton>
             </div>
           </form>
