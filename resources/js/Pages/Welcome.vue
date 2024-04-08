@@ -322,7 +322,7 @@ const enviarEncuesta = () => {
                         class="py-6 px-10 bg-white from-gray-700/50 via-transparent rounded-lg shadow-2xl shadow-gray-500/20 flex">
                         <div>
                             <h2 class="my-6 text-4xl text-center font-semibold uppercase text-gray-900">
-                                Registrar De Insumo Para Protocolo:
+                                Formulario para organización e  insumos logísticos, eventos y actividades académicas-administrativas Unellez:
                             </h2>
 
                             <div class="my-4">
